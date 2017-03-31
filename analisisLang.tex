@@ -1,0 +1,166 @@
+\documentclass{beamer}
+\usetheme{metropolis}
+%%%
+\usepackage{polyglossia}
+\setmainlanguage{spanish}
+\setotherlanguages{english}
+%%%
+\usepackage{url}
+\usepackage{lscape}
+\usepackage[squaren]{SIunits}
+\usepackage{spverbatim}
+%%%
+\usepackage{csquotes}
+\usepackage[style=authoryear-comp, backend=bibtex]{biblatex} 
+% \bibliographystyle{plainnatR} 
+% backend=biber  % for biber
+% apalike harvard chicago unsrtnat elsart-num-names
+% \bibliography{referencias}
+\addbibresource{referencias.bib}
+%%%
+% R/knitr
+\usepackage{tikz}
+\usepackage{rotating}
+\usepackage{subfig}
+\usepackage{inconsolata}
+\usepackage{dcolumn}   % requerido por stargazer y texreg
+\usepackage{booktabs}  % requerido por xtable y texreg
+%%%
+\usepackage{syntonly}
+%\syntaxonly %verifica sintaxis sin generar documento
+%%%
+
+%%%%%%%%%%%%%%%%%% hipervinculos activos %%%%%%%%%%%%%%%%%%%%%%%
+
+% \ifx\pdfoutput\undefined % We're not running pdftex
+% \RequirePackage[bookmarks,hyperindex,plainpages=false]{hyperref}
+% %colorlinks,
+% \else
+% \RequirePackage[bookmarks,hyperindex,plainpages=false]{hyperref}
+% \def\pdfBorderAttrs{/Border [0 0 0] } % No border arround Links
+% \hypersetup{pdfauthor={Ulises M. Alvarez}}
+% \hypersetup{pdftitle={Sophie UNAM}}
+% \fi
+%%%%%%%%%%%%%%%%%%
+
+\title{Lenguages de programaci\'on}
+% Use metropolis theme
+\date{\today}
+
+\author{Ulises M. Alvarez\\ %
+%   Proyecto Sophie UNAM\\ %
+   $<$\href{mailto:uma@sophie.unam.mx}% 
+   {uma@sophie.unam.mx}$>$
+}
+
+\institute{Sophie UNAM}
+
+\begin{document}
+
+\maketitle
+
+% \begin{frame}{Brevario}
+%   \setbeamertemplate{section in toc}[sections numbered]
+%   \tableofcontents[hideallsubsections]
+% \end{frame}
+
+% \section{Caracter\'isticas a considerar}
+% \label{sec:caracteristicas}
+
+\begin{frame}[standout]
+  Características 
+\end{frame}
+
+\begin{frame}{Características}
+  \begin{itemize}
+  \item Código abierto.
+  \item Orientado a análisis de datos.
+  \item Presente en los principales sistemas operativos.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Código abierto}
+  \begin{figure}[hp]
+    \centering
+    \includegraphics[width=0.75\textwidth]{mathMisfortunes}
+    \caption{\href{http://www.ams.org/notices/201410/rnoti-p1249.pdf}%
+      {The Misfortunes of a Trio of Mathematicians\ldots}
+    }
+    \label{fig:misfortunes}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{Análisis de datos}
+  \begin{figure}[hp]
+    \centering
+    \includegraphics[width=0.75\textwidth]{gitPopular}
+    \caption{\href{https://github.com/blog/2047-language-trends-on-github}%
+      {Tendencias en GitHub}
+    }
+    \label{fig:git}
+  \end{figure}
+\end{frame}
+
+\begin{frame}[standout]
+  Lenguages
+\end{frame}
+
+% \section{Lenguajes analizados}
+% \label{sec:lenguajes}
+
+\begin{frame}{Lenguajes}
+  \begin{itemize}
+  \item Python
+  \item R
+  \item Julia
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Lenguajes: Popularidad}
+  \begin{figure}[hp]
+    \centering
+    \includegraphics[width=0.75\textwidth]{IEEE}
+    \caption{\href{http://spectrum.ieee.org/static/interactive-the-top-programming-languages-2016}%
+      {Tendencias en IEEE (I).}
+    }
+    \label{fig:ieee01}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{Lenguajes: Popularidad}
+  \begin{figure}[hp]
+    \centering
+    \includegraphics[width=0.75\textwidth]{IEEE02}
+    \caption{\href{http://spectrum.ieee.org/static/interactive-the-top-programming-languages-2016}%
+      {Tendencias en IEEE (II).}
+    }
+    \label{fig:ieee02}
+  \end{figure}
+\end{frame}
+
+
+% \section{Conclusiones}
+% \label{sec:conlusiones}
+
+
+\begin{frame}[standout]
+  Qué lenguaje usar
+\end{frame}
+
+\begin{frame}{Conclusiones}
+  \begin{itemize}
+  \item Lo que use mi gremio (\emph{siempre y cuando sea de código
+      abierto}). 
+  \item El que se integre mejor a mi flujo de trabajo.
+  \item Perspectiva de desarrollo académico (\emph{no siempre el más
+      usado es el mejor}).
+  \end{itemize}
+\end{frame}
+
+
+\end{document}
+%%% Local Variables:
+%%% mode: latex
+%%% mode: flyspell
+%%% TeX-engine: luatex
+%%% End:
