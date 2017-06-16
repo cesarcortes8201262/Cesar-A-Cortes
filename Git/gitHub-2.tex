@@ -1,0 +1,133 @@
+\documentclass{beamer}
+\usetheme{metropolis}
+%%%
+\usepackage{polyglossia}
+\setmainlanguage{spanish}
+\setotherlanguages{english}
+%%%
+\usepackage{url}
+\usepackage{lscape}
+\usepackage[squaren]{SIunits}
+\usepackage{spverbatim}
+%%% 
+\usepackage{csquotes}
+\usepackage[style=authoryear-comp, backend=bibtex]{biblatex} 
+% \bibliographystyle{plainnatR} 
+% backend=biber  % for biber
+% apalike harvard chicago unsrtnat elsart-num-names
+% \bibliography{referencias}
+\addbibresource{referencias.bib}
+%%%
+% R/knitr
+\usepackage{tikz}
+\usepackage{rotating}
+\usepackage{subfig}
+\usepackage{inconsolata}
+\usepackage{dcolumn}   % requerido por stargazer y texreg
+\usepackage{booktabs}  % requerido por xtable y texreg
+%%%
+\usepackage{syntonly}
+%\syntaxonly %verifica sintaxis sin generar documento
+%%%
+
+%%%%%%%%%%%%%%%%%% hipervinculos activos %%%%%%%%%%%%%%%%%%%%%%%
+
+% \ifx\pdfoutput\undefined % We're not running pdftex
+% \RequirePackage[bookmarks,hyperindex,plainpages=false]{hyperref}
+% %colorlinks,
+% \else
+% \RequirePackage[bookmarks,hyperindex,plainpages=false]{hyperref}
+% \def\pdfBorderAttrs{/Border [0 0 0] } % No border arround Links
+% \hypersetup{pdfauthor={Ulises M. Alvarez}}
+% \hypersetup{pdftitle={Sophie UNAM}}
+% \fi
+%%%%%%%%%%%%%%%%%%
+
+\title{Git II - GitHub desde la consola}
+% Use metropolis theme
+\date{Junio 2017}
+
+\author{Ulises M. Alvarez\\ %
+%   Proyecto Sophie UNAM\\ %
+   $<$\href{mailto:uma@sophie.unam.mx}% 
+   {uma@sophie.unam.mx}$>$
+}
+
+\institute{Sophie UNAM}
+
+\begin{document}
+
+\maketitle
+
+% \begin{frame}{Brevario}
+%   \setbeamertemplate{section in toc}[sections numbered]
+%   \tableofcontents[hideallsubsections]
+% \end{frame}
+
+% \section{Caracter\'isticas a considerar}
+% \label{sec:caracteristicas}
+
+\begin{frame}[standout]
+  GitHub vía ssh
+\end{frame}
+
+\begin{frame}
+  \frametitle{GitHub}
+  \begin{itemize}
+  \item Es un sistema de control de versiones basado en Git y,
+    simult\'aneamente, un servicio de alojamiento.
+  \item Ofrece control de cambios y administraci\'on de c\'odigo
+    fuente.
+  \item Provee control de accesos, seguimiento de errores, peticiones
+    de funcionalidad, administraci\'on de tareas y \textit{wikis.}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{GitHub vía ssh: verificando llaves}
+\begin{verbatim}
+$ ls -al ~/.ssh
+total 80
+.
+..
+authorized_keys
+id_rsa
+id_rsa.pub
+known_hosts
+\end{verbatim}
+\end{frame}
+
+% \begin{frame}{GitHub: descargando o clonando el repositorio}
+%   \begin{figure}[hp]
+%     \centering \includegraphics[width=0.75\textwidth]{fig/08Download}
+%     % \caption{Creando un nuevo repositorio.}
+%     \label{fig:gitclone}
+%   \end{figure}
+% \end{frame}
+
+
+% % \section{Conclusiones}
+% % \label{sec:conlusiones}
+
+
+% \begin{frame}[standout]
+%   Qué lenguaje usar
+% \end{frame}
+
+% \begin{frame}{Conclusiones}
+%   \begin{itemize}
+%   \item Lo que use mi gremio (\emph{siempre y cuando sea de código
+%     abierto}).
+%   \item El que se integre mejor a mi flujo de trabajo.
+%   \item Perspectiva de desarrollo académico (\emph{no siempre el más
+%     usado es el mejor}).
+%   \end{itemize}
+% \end{frame}
+
+
+\end{document}
+%%% Local Variables:
+%%% mode: latex
+%%% mode: flyspell
+%%% TeX-engine: xetex
+%%% End:
