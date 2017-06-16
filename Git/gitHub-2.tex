@@ -67,10 +67,6 @@
 % \section{Caracter\'isticas a considerar}
 % \label{sec:caracteristicas}
 
-\begin{frame}[standout]
-  GitHub vía ssh
-\end{frame}
-
 \begin{frame}
   \frametitle{GitHub}
   \begin{itemize}
@@ -80,11 +76,24 @@
     fuente.
   \item Provee control de accesos, seguimiento de errores, peticiones
     de funcionalidad, administraci\'on de tareas y \textit{wikis.}
+  \item Permite acceso v\'\i{}a \texttt{ssh.}
   \end{itemize}
 \end{frame}
 
+\begin{frame}[standout]
+  GitHub vía ssh
+\end{frame}
+
 \begin{frame}[fragile]
-  \frametitle{GitHub vía ssh: verificando llaves}
+  \frametitle{GitHub vía ssh}
+  El uso del protocolo, \texttt{ssh}, permite conectarse a \textit{GitHub}
+  sin tener que proporcionar el usuario y contrase\~na. Pero es necesario
+  generar \emph{llaves} de intercambio seguras.
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{I. Verificar llaves}
+  Antes de generar llaves SSH, es necesario verificar si existen:
 \begin{verbatim}
 $ ls -al ~/.ssh
 total 80
@@ -97,14 +106,147 @@ known_hosts
 \end{verbatim}
 \end{frame}
 
-% \begin{frame}{GitHub: descargando o clonando el repositorio}
-%   \begin{figure}[hp]
-%     \centering \includegraphics[width=0.75\textwidth]{fig/08Download}
-%     % \caption{Creando un nuevo repositorio.}
-%     \label{fig:gitclone}
-%   \end{figure}
-% \end{frame}
+\begin{frame}[fragile]
+  \frametitle{I. Verificar llaves}
+  \begin{itemize}
+  \item Si no tiene llaves disponibles, o si desea usar un nuevo par para
+    conectarse a \textit{GitHub}, tendr\'a{} que generarlo.
+  \end{itemize}
+\end{frame}
 
+\begin{frame}[fragile]
+  \frametitle{II. Generar llaves SSH}
+  Ejecute el siguiente comando desde su terminal:
+\begin{verbatim}
+$ ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+\end{verbatim}
+  \begin{itemize}
+  \item Cuando se le pregunte por el archivo donde guardar las llaves,
+    presione \texttt{Enter}.
+  \item Ingrese la \emph{frase de protecci\'on.}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile,fragile]
+  \frametitle{III. Agregar llaves a ssh-agent}
+  1. Inicie \texttt{ssh-agent} en la terminal:
+\begin{verbatim}
+$ eval "$(ssh-agent -s)"
+\end{verbatim}
+  2. Agregue la llave mediante:
+\begin{verbatim}
+$ ssh-add ~/.ssh/id_rsa
+\end{verbatim}
+  \begin{itemize}
+  \item Reemplace, \emph{id\_rsa}, con el nombre de la llave generada
+    anteriormente.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{IV. Agregar llave a GitHub}
+  1. Copie la llave p\'ublica al portapapeles:
+\begin{verbatim}
+$ xclip -sel clip < ~/.ssh/id_rsa.pub
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{IV. Agregar llave a GitHub}
+  2. Vaya a su perfil de \textit{GitHub} y abra los ajustes:
+  \begin{figure}[hp]
+    \centering \includegraphics[width=0.4\textwidth]{fig/userbar-account-settings}
+    % \caption{Creando un nuevo repositorio.}
+    \label{fig:gssh01}
+  \end{figure}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{IV. Agregar llave a GitHub}
+  3. Haga clic sobre el apartado \textbf{Llaves SSH GPG}:
+  \begin{figure}[hp]
+    \centering \includegraphics[width=0.4\textwidth]{fig/settings-sidebar-ssh-keys}
+    % \caption{Creando un nuevo repositorio.}
+    \label{fig:gssh02}
+  \end{figure}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{IV. Agregar llave a GitHub}
+  4. Vaya a \textbf{Nueva llave SSH}:
+  \begin{figure}[hp]
+    \centering \includegraphics[width=0.75\textwidth]{fig/ssh-add-ssh-key}
+    % \caption{Creando un nuevo repositorio.}
+    \label{fig:gssh03}
+  \end{figure}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{IV. Agregar llave a GitHub}
+  \begin{itemize}
+  \item[5.] Agregue un t\'\i{}tulo descriptivo.
+  \item[6.] Pegue la llave p\'ublica en el campo respectivo.
+  \end{itemize}
+  \begin{figure}[hp]
+    \centering \includegraphics[width=0.6\textwidth]{fig/ssh-key-paste}
+    % \caption{Creando un nuevo repositorio.}
+    \label{fig:gssh04}
+  \end{figure}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{IV. Agregar llave a GitHub}
+  7. Agregue la nueva llave:
+  \begin{figure}[hp]
+    \centering \includegraphics[width=0.4\textwidth]{fig/ssh-add-key}
+    % \caption{Creando un nuevo repositorio.}
+    \label{fig:gssh05}
+  \end{figure}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{IV. Agregar llave a GitHub}
+  8. De ser necesario, Ingrese su contrase\~na de \textit{GitHub:}
+  \begin{figure}[hp]
+    \centering \includegraphics[width=0.4\textwidth]{fig/sudo_mode_popup}
+    % \caption{Creando un nuevo repositorio.}
+    \label{fig:gssh06}
+  \end{figure}
+\end{frame}
+
+\begin{frame}[standout]
+  Subir un repositorio local
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Subir repositorio - CLI}
+  \begin{figure}[hp]
+    \centering \includegraphics[width=0.75\textwidth]{fig/new-project-cli}
+    \caption{\href{https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/}%
+      {C\'omo subir nuevo repositorio desde CLI.}}
+    \label{fig:ghcli}
+  \end{figure}
+\end{frame}
+
+\begin{frame}[standout]
+  Para saber m\'as
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Para saber m\'as}
+  \begin{itemize}
+  \item \href{https://help.github.com/articles/connecting-to-github-with-ssh/}%
+    {Connecting to GitHub with SSH}
+  \item \href{https://help.github.com/articles/checking-for-existing-ssh-keys/}%
+    {Checking for existing SSH keys}
+  \item \href{https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/}%
+    {Generating a new SSH key and adding it to the ssh-agent}
+  \item \href{https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/}%
+    {Adding a new SSH key to your GitHub account}
+  \item \href{https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/}%
+    {Adding an existing project to GitHub using the command line}
+  \end{itemize}
+\end{frame}
 
 % % \section{Conclusiones}
 % % \label{sec:conlusiones}
