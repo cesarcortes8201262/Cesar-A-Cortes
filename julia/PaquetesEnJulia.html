@@ -11793,7 +11793,7 @@ div#notebook {
 <h1 id="El-problema-de-las-actualizaciones">El problema de las actualizaciones<a class="anchor-link" href="#El-problema-de-las-actualizaciones">&#182;</a></h1><p>Actualizar, <em>julia,</em> a última versión disponible plantea algunos problemas, entre ellos podemos mencionar:</p>
 <ul>
 <li>Incompatibilidad de programas por cambios en la sintaxis del lenguaje.</li>
-<li>Necesidad de reinstalar la biblioteca de librerías.</li>
+<li>Necesidad de reinstalar los paquetes de nuestra librería.</li>
 </ul>
 
 </div>
@@ -11803,7 +11803,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Administraci&#243;n-de-la-biblioteca-de-librer&#237;as">Administraci&#243;n de la biblioteca de librer&#237;as<a class="anchor-link" href="#Administraci&#243;n-de-la-biblioteca-de-librer&#237;as">&#182;</a></h1><p><em>Julia,</em> cuenta con varias herramientas para la administración de las librerías <em>(Packages).</em> Todas estas herramientas están disponibles en el módulo, <em>Pkg,</em> que se incluye por defecto.</p>
+<h1 id="Administraci&#243;n-de-la-biblioteca-de-paquetes">Administraci&#243;n de la biblioteca de paquetes<a class="anchor-link" href="#Administraci&#243;n-de-la-biblioteca-de-paquetes">&#182;</a></h1><p><em>Julia,</em> cuenta con varias herramientas para la administración de <em>paquetes</em>. Todas estas herramientas están disponibles en el módulo, <em>Base.Pkg,</em> que se incluye por defecto.</p>
 <p>La ayuda para dichas herramientas está disponible en la consola de las sesiones interactivas y en línea:</p>
 <ul>
 <li><a href="https://docs.julialang.org/en/stable/manual/packages/">https://docs.julialang.org/en/stable/manual/packages/</a></li>
@@ -11816,7 +11816,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Estado-de-las-librer&#237;as">Estado de las librer&#237;as<a class="anchor-link" href="#Estado-de-las-librer&#237;as">&#182;</a></h2><p>El estado de las librerías se puede obtener con el comando:</p>
+<h2 id="Estado-de-los-paquetes">Estado de los paquetes<a class="anchor-link" href="#Estado-de-los-paquetes">&#182;</a></h2><p>El estado de los paquetes se puede obtener con el comando:</p>
 <div class="highlight"><pre><span></span><span class="n">Pkg</span><span class="o">.</span><span class="n">status</span><span class="p">()</span>
 </pre></div>
 
@@ -11868,10 +11868,10 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Como podemos observar, en este caso tenemos librerías:</p>
+<p>Como podemos observar, en este caso tenemos paquetes:</p>
 <ul>
-<li><em>requeridas</em>, esto es, instalados por el usuario.</li>
-<li><em>adicionales</em>, librerías descargadas como dependencias.</li>
+<li><em>requeridos</em>, esto es, instalados por el usuario.</li>
+<li><em>adicionales</em>, paquetes que se descargaron como dependencias.</li>
 </ul>
 
 </div>
@@ -11881,7 +11881,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Si no ha instalado ninguna librería al momento de ejecutar el comando, obtendrá:</p>
+<p>Si no ha instalado ningún paquete al momento de ejecutar el comando, obtendrá:</p>
 <div class="highlight"><pre><span></span><span class="n">Pkg</span><span class="o">.</span><span class="n">status</span><span class="p">()</span>
 <span class="n">INFO</span><span class="o">:</span> <span class="n">Initializing</span> <span class="n">package</span> <span class="n">repository</span> <span class="o">~/.</span><span class="n">julia</span><span class="o">/</span><span class="n">v0</span><span class="o">.</span><span class="mi">5</span>
 <span class="n">INFO</span><span class="o">:</span> <span class="n">Cloning</span> <span class="n">METADATA</span> <span class="n">from</span> <span class="n">git</span><span class="o">://</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">JuliaLang</span><span class="o">/</span><span class="n">METADATA</span><span class="o">.</span><span class="n">jl</span>
@@ -11895,7 +11895,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Directorio-de-trabajo">Directorio de trabajo<a class="anchor-link" href="#Directorio-de-trabajo">&#182;</a></h2><p>Para mostrar el directorio <em>base</em> donde están, o estarán, las librerías usamos:</p>
+<h2 id="Directorio-de-trabajo">Directorio de trabajo<a class="anchor-link" href="#Directorio-de-trabajo">&#182;</a></h2><p>Para mostrar el directorio <em>base</em> donde están, o estarán, los paquetes usamos:</p>
 <div class="highlight"><pre><span></span><span class="n">Pkg</span><span class="o">.</span><span class="n">dir</span><span class="p">()</span>
 </pre></div>
 
@@ -11906,7 +11906,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Si deseamos saber la ruta a una librería en particular, usamos:</p>
+<p>Si deseamos saber dónde está instalado un paquete en particular, usamos:</p>
 <div class="highlight"><pre><span></span><span class="n">Pkg</span><span class="o">.</span><span class="n">dir</span><span class="p">(</span><span class="s">&quot;IJulia&quot;</span><span class="p">)</span>
 </pre></div>
 
@@ -11917,7 +11917,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Librer&#237;as-disponibles-para-instalar">Librer&#237;as disponibles para instalar<a class="anchor-link" href="#Librer&#237;as-disponibles-para-instalar">&#182;</a></h2><p>Para obtener una lista de las librerías que podríamos instalar desde Internet, usamos:</p>
+<h2 id="Paquetes-disponibles-para-instalar">Paquetes disponibles para instalar<a class="anchor-link" href="#Paquetes-disponibles-para-instalar">&#182;</a></h2><p>Para obtener una lista de los paquetes que podríamos instalar desde Internet, usamos:</p>
 
 </div>
 </div>
@@ -11995,7 +11995,7 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">typeof</span><span class="p">(</span><span class="n">Pkg</span><span class="o">.</span><span class="n">available</span><span class="p">())</span>  <span class="c"># Qué tipo de respuesta nos regresa, Pkg.available()</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">typeof</span><span class="p">(</span><span class="n">Pkg</span><span class="o">.</span><span class="n">available</span><span class="p">())</span>  <span class="c"># Qué tipo de respuesta nos regresa Pkg.available()</span>
 </pre></div>
 
 </div>
@@ -12083,7 +12083,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Librer&#237;as-instaladas">Librer&#237;as instaladas<a class="anchor-link" href="#Librer&#237;as-instaladas">&#182;</a></h2><p>Para facilitar las consultas, <em>julia</em>, también cuenta con una función que nos permite obtener una lista de las librerías que ya tenemos instaladas:</p>
+<h2 id="Paquetes-instalados">Paquetes instalados<a class="anchor-link" href="#Paquetes-instalados">&#182;</a></h2><p>Para facilitar las consultas, <em>julia</em>, también cuenta con una función que nos permite obtener una lista de los paquetes que ya tenemos instalados:</p>
 
 </div>
 </div>
@@ -12176,7 +12176,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Las variables de tipo <em>diccionario</em> cuentan con sus propias funciones, por ejemplo, para saber si el diccionario tiene una llave:</p>
+<p>Las variables de tipo <em>diccionario</em> cuentan con sus propias funciones, por ejemplo:</p>
 
 </div>
 </div>
@@ -12230,7 +12230,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Actualizando-biblioteca-de-una-versi&#243;n-a-otra">Actualizando biblioteca de una versi&#243;n a otra<a class="anchor-link" href="#Actualizando-biblioteca-de-una-versi&#243;n-a-otra">&#182;</a></h1><p>Para reproducir la biblioteca de la versión anterior de <em>julia</em>, se puede usar el siguiente procedimiento:</p>
+<h1 id="Actualizando-biblioteca-de-una-versi&#243;n-a-otra">Actualizando biblioteca de una versi&#243;n a otra<a class="anchor-link" href="#Actualizando-biblioteca-de-una-versi&#243;n-a-otra">&#182;</a></h1><p>Para reproducir la biblioteca de la versión anterior de <em>julia</em>, en sistemas tipo <em>Unix</em> (Linux, MacOS, etc.), se puede usar el siguiente procedimiento:</p>
 
 </div>
 </div>
@@ -12393,6 +12393,159 @@ randmtzig.c:104:5: warning: dereferencing type-punned pointer will break strict-
 </span><span class="ansi-cyan-intense-fg ansi-bold">INFO: </span><span class="ansi-cyan-fg">Package database updated
 </span><span class="ansi-cyan-intense-fg ansi-bold">INFO: </span><span class="ansi-cyan-fg">Precompiling module Distributions.
 </span></pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="n">workspace</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="k">function</span> <span class="n">p_load</span><span class="p">(</span><span class="n">a</span><span class="o">::</span><span class="n">String</span><span class="p">)</span>
+    <span class="k">if</span> <span class="o">!</span><span class="n">haskey</span><span class="p">(</span><span class="n">Pkg</span><span class="o">.</span><span class="n">installed</span><span class="p">(),</span> <span class="n">a</span><span class="p">)</span>  <span class="c"># ¿Está instalado el paquete?</span>
+        <span class="n">Pkg</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>                  <span class="c"># Si no está, lo instalamos</span>
+        <span class="c"># using Distributions</span>
+    <span class="k">else</span>
+        <span class="c">#using Distributions</span>
+        <span class="n">println</span><span class="p">(</span><span class="s">&quot;Ya esta&quot;</span><span class="p">)</span>
+    <span class="k">end</span>
+<span class="k">end</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[15]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>p_load (generic function with 1 method)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="n">methods</span><span class="p">(</span><span class="n">p_load</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[16]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+1 method for generic function <b>p_load</b>:<ul><li> p_load(a::<b>String</b>) at In[15]:2</li> </ul>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="n">p_load</span><span class="p">(</span><span class="s">&quot;IJulia&quot;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Ya esta
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="n">p_load</span><span class="p">(</span><span class="n">Distributions</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-intense-fg">UndefVarError: Distributions not defined</span>
+
+Stacktrace:
+ [1] <span class="ansi-bold">execute_request</span><span class="ansi-bold">(</span>::LastMain.LastMain.ZMQ.Socket, ::LastMain.LastMain.IJulia.Msg<span class="ansi-bold">)</span> at <span class="ansi-bold">/home/uma/.julia/v0.6/IJulia/src/execute_request.jl:156</span>
+ [2] <span class="ansi-bold">eventloop</span><span class="ansi-bold">(</span>::LastMain.LastMain.ZMQ.Socket<span class="ansi-bold">)</span> at <span class="ansi-bold">/home/uma/.julia/v0.6/IJulia/src/eventloop.jl:8</span>
+ [3] <span class="ansi-bold">(::LastMain.LastMain.IJulia.##9#12)</span><span class="ansi-bold">(</span><span class="ansi-bold">)</span> at <span class="ansi-bold">./task.jl:335</span></pre>
 </div>
 </div>
 
