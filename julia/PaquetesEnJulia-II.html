@@ -11831,21 +11831,21 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span></span><span class="k">function</span> <span class="n">p_it</span><span class="p">(</span><span class="n">p</span><span class="o">::</span><span class="n">String</span><span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="k">function</span> <span class="n">p_it</span><span class="p">(</span><span class="n">p</span><span class="o">::</span><span class="kt">AbstractString</span><span class="p">)</span>
     <span class="c"># Instala el paquete &#39;p&#39;</span>
     <span class="c">#</span>
     <span class="c"># Args:</span>
-    <span class="c">#   p: el nombre completo del paquete::String</span>
+    <span class="c">#   p: el nombre completo del paquete::AbstractString</span>
     <span class="c">#</span>
     <span class="c"># Returns:</span>
-    <span class="c">#   Mensaje de error o notifica de la instalación vía Base.Pkg.add</span>
+    <span class="c">#   Mensaje de advertencia o notifica de la instalación vía Base.Pkg.add</span>
     <span class="c">#</span>
-    <span class="nb">ENV</span><span class="p">[</span><span class="s">&quot;PYTHON&quot;</span><span class="p">]</span><span class="o">=</span><span class="s">&quot;&quot;</span>                                 <span class="c"># Para reproducibilidad</span>
-    <span class="k">if</span> <span class="o">!</span><span class="n">contains</span><span class="p">(</span><span class="o">==</span><span class="p">,</span> <span class="n">Pkg</span><span class="o">.</span><span class="n">available</span><span class="p">(),</span> <span class="n">p</span><span class="p">)</span>             <span class="c"># si la cadena &#39;p&#39; no existe</span>
-        <span class="n">println</span><span class="p">(</span><span class="s">&quot;No disponible, verifique nombre.&quot;</span><span class="p">)</span>  <span class="c"># Informamos al usuario.</span>
+    <span class="nb">ENV</span><span class="p">[</span><span class="s">&quot;PYTHON&quot;</span><span class="p">]</span><span class="o">=</span><span class="s">&quot;&quot;</span>                                
+    <span class="k">if</span> <span class="o">!</span><span class="n">contains</span><span class="p">(</span><span class="o">==</span><span class="p">,</span> <span class="n">Pkg</span><span class="o">.</span><span class="n">available</span><span class="p">(),</span> <span class="n">p</span><span class="p">)</span>            
+        <span class="n">println</span><span class="p">(</span><span class="s">&quot;No disponible en Pkg.available().&quot;</span><span class="p">)</span>
     <span class="k">else</span>                                                     
-        <span class="k">if</span> <span class="o">!</span><span class="n">haskey</span><span class="p">(</span><span class="n">Pkg</span><span class="o">.</span><span class="n">installed</span><span class="p">(),</span> <span class="n">p</span><span class="p">)</span>               <span class="c"># Si &#39;p&#39; no está instalado</span>
-            <span class="n">Pkg</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>                               <span class="c"># Lo instalamos.</span>
+        <span class="k">if</span> <span class="o">!</span><span class="n">haskey</span><span class="p">(</span><span class="n">Pkg</span><span class="o">.</span><span class="n">installed</span><span class="p">(),</span> <span class="n">p</span><span class="p">)</span>              
+            <span class="n">Pkg</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>                              
         <span class="k">end</span>
     <span class="k">end</span>
 <span class="k">end</span>
@@ -11899,7 +11899,7 @@ div#notebook {
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-1 method for generic function <b>p_it</b>:<ul><li> p_it(p::<b>String</b>) at In[1]:10</li> </ul>
+1 method for generic function <b>p_it</b>:<ul><li> p_it(p::<b>AbstractString</b>) at In[1]:10</li> </ul>
 </div>
 
 </div>
@@ -11941,7 +11941,7 @@ div#notebook {
 <pre>
 <span class="ansi-red-intense-fg">MethodError: no method matching p_it(::Int64)</span>
 Closest candidates are:
-  p_it(<span class="ansi-red-intense-fg">::String</span>) at In[1]:10
+  p_it(<span class="ansi-red-intense-fg">::AbstractString</span>) at In[1]:10
 
 Stacktrace:
  [1] <span class="ansi-bold">execute_request</span><span class="ansi-bold">(</span>::ZMQ.Socket, ::IJulia.Msg<span class="ansi-bold">)</span> at <span class="ansi-bold">/home/uma/.julia/v0.6/IJulia/src/execute_request.jl:160</span>
@@ -11979,7 +11979,7 @@ Stacktrace:
 <pre>
 <span class="ansi-red-intense-fg">MethodError: no method matching p_it(::Float64)</span>
 Closest candidates are:
-  p_it(<span class="ansi-red-intense-fg">::String</span>) at In[1]:10
+  p_it(<span class="ansi-red-intense-fg">::AbstractString</span>) at In[1]:10
 
 Stacktrace:
  [1] <span class="ansi-bold">execute_request</span><span class="ansi-bold">(</span>::ZMQ.Socket, ::IJulia.Msg<span class="ansi-bold">)</span> at <span class="ansi-bold">/home/uma/.julia/v0.6/IJulia/src/execute_request.jl:160</span>
@@ -12017,7 +12017,7 @@ Stacktrace:
 <pre>
 <span class="ansi-red-intense-fg">MethodError: no method matching p_it(::Module)</span>
 Closest candidates are:
-  p_it(<span class="ansi-red-intense-fg">::String</span>) at In[1]:10
+  p_it(<span class="ansi-red-intense-fg">::AbstractString</span>) at In[1]:10
 
 Stacktrace:
  [1] <span class="ansi-bold">execute_request</span><span class="ansi-bold">(</span>::ZMQ.Socket, ::IJulia.Msg<span class="ansi-bold">)</span> at <span class="ansi-bold">/home/uma/.julia/v0.6/IJulia/src/execute_request.jl:160</span>
@@ -12060,7 +12060,7 @@ Stacktrace:
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>No disponible, verifique nombre.
+<pre>No disponible en Pkg.available().
 </pre>
 </div>
 </div>
@@ -12293,7 +12293,7 @@ Platform Info:
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>2017-06-21</pre>
+<pre>2017-06-26</pre>
 </div>
 
 </div>
